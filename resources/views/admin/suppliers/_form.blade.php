@@ -1,0 +1,8 @@
+<form action="{{ !empty($supplier) ? url('admin/suppliers/edit',$supplier->id) : url('admin/suppliers/add') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row mb-3"><label for="" class="col-sm-3 col-form-label">Supplier Name<span class="text-danger"> *</span></label><div class="col-sm-9"><input name="suppliers_name" type="text" value="{{ old('suppliers_name', !empty($supplier) ? $supplier->suppliers_name : '') }}" class="form-control" required></div></div>
+                            <div class="row mb-3"><label for="" class="col-sm-3 col-form-label">Supplier Email<span class="text-danger"> *</span></label><div class="col-sm-9"><input name="suppliers_email" value="{{ old('suppliers_email', !empty($supplier) ? $supplier->suppliers_email : '') }}" type="email" class="form-control" required></div></div>
+                            <div class="row mb-3"><label for="" class="col-sm-3 col-form-label">Contact Number<span class="text-danger"> *</span></label><div class="col-sm-9"><input name="contact_number" value="{{ old('contact_number', !empty($supplier) ? $supplier->contact_number : '') }}" type="text" class="form-control" required></div></div>
+                            <div class="row mb-3"><label for="" class="col-sm-3 col-form-label">Address</label><div class="col-sm-9"><textarea name="address" id="" class="form-control">{{ old('address', !empty($supplier) ? $supplier->address : '') }}</textarea></div></div>
+    <div class="row mb-3"><label for="" class="col-sm-3 col-form-label"></label><div class="col-sm-9"><input type="submit" class="btn btn-primary" value="{{ !empty($supplier) ? "Update" : "Submit" }}"></div></div>
+                        </form>
